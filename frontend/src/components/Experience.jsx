@@ -1,4 +1,5 @@
 import React from 'react';
+import api from "../api/api";
 
 const experiences = [
   {
@@ -24,6 +25,14 @@ const experiences = [
   },
 ];
 
+const submitForm = async (formData) => {
+  try {
+    const response = await api.post("/contact", formData);
+    console.log("Message sent:", response.data);
+  } catch (error) {
+    console.error("Error sending message:", error);
+  }
+}; 
 export default function Experience() {
   return (
     <section aria-labelledby="experience-heading">
