@@ -17,9 +17,9 @@ export default function Header() {
     () => localStorage.getItem("theme") || "dark"
   );
   const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false); // NEW: for burger menu
+  const [menuOpen, setMenuOpen] = useState(false); 
 
-  // Theme toggle
+  
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
     localStorage.setItem("theme", theme);
@@ -28,21 +28,21 @@ export default function Header() {
   const toggleTheme = () =>
     setTheme((prev) => (prev === "light" ? "dark" : "light"));
 
-  // Scroll listener
+ 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Toggle menu
+
   const toggleMenu = () => setMenuOpen((prev) => !prev);
 
   return (
     <header className={scrolled ? "scrolled" : ""}>
       <div className="header-brand">Charl.Dev</div>
 
-      {/* Hamburger Button */}
+     
       <button
         className={`burger ${menuOpen ? "open" : ""}`}
         onClick={toggleMenu}
@@ -53,7 +53,7 @@ export default function Header() {
         <span></span>
       </button>
 
-      {/* Navigation */}
+      
       <nav
         className={`header-nav ${menuOpen ? "show" : ""}`}
         aria-label="Primary navigation"
@@ -68,7 +68,7 @@ export default function Header() {
           Contact
         </a>
 
-        {/* Theme toggle */}
+       
         <button
           aria-label="Toggle theme"
           className="theme-toggle"

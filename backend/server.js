@@ -19,7 +19,7 @@ app.use(morgan('dev'));
 const limiter = rateLimit({ windowMs: 60*1000, max: 60 });
 app.use(limiter);
 
-// serve images
+
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
 app.get('/api/projects', (req, res) => {
@@ -31,7 +31,6 @@ app.get('/api/projects', (req, res) => {
 });
 
 app.post('/api/contact', (req, res) => {
-  // lightweight: log and return success for demo/development
   console.log('Contact form submission:', req.body);
   res.json({ ok: true });
 });

@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 export default function useTypingText(phrases, speed = 70, pause = 1200) {
   const [index, setIndex] = useState(0);
   const [display, setDisplay] = useState('');
-  const [phase, setPhase] = useState('typing'); // typing | pausing | deleting
+  const [phase, setPhase] = useState('typing');
 
   useEffect(() => {
     let mounted = true;

@@ -1,1 +1,3 @@
-Charl Portfolio — Production-ready scaffold\n\nFrontend: Vite + React (single page).\nBackend: Node + Express (simple API for projects & contact).\n\nSee frontend/README.md and backend/README.md for details.
+Charl Portfolio — full-stack site built with React, Vite, Node.js, and Express. It features a responsive layout, dark/light mode toggle, typing animation, and API-powered project and contact sections.
+
+![Project Preview](./frontend/public/images/code.png)

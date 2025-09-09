@@ -38,7 +38,7 @@ export default function Projects({ items = [] }) {
               <p style={{ margin: 0, opacity: 0.95 }}>{it.description}</p>
 
               <div className="project-actions">
-                {/* View Live Demo */}
+               
                 <a
                   href={it.url || "#"}
                   target="_blank"
@@ -49,7 +49,7 @@ export default function Projects({ items = [] }) {
                   </button>
                 </a>
 
-                {/* GitHub Link */}
+              
                 {it.github && (
                   <a href={it.github} target="_blank" rel="noopener noreferrer">
                     <button
