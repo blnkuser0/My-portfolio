@@ -26,10 +26,13 @@ export default function Contact() {
     e.preventDefault();
     setStatus("sending");
 
+    // console.log("Service ID:", import.meta.env.VITE_MY_SERVICE_ID);
+    // console.log("Template ID:", import.meta.env.VITE_MY_TEMPLATE_ID);
+    // console.log("Public Key:", import.meta.env.VITE_MY_PUBLIC_KEY);
+
     emailjs
       .send(
         import.meta.env.VITE_MY_SERVICE_ID,
-        console.log(import.meta.env.VITE_MY_TEMPLATE_ID),
         import.meta.env.VITE_MY_TEMPLATE_ID,
         {
           name: form.name,
