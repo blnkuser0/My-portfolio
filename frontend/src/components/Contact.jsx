@@ -29,6 +29,7 @@ export default function Contact() {
     emailjs
       .send(
         import.meta.env.VITE_MY_SERVICE_ID,
+        console.log(import.meta.env.VITE_MY_TEMPLATE_ID),
         import.meta.env.VITE_MY_TEMPLATE_ID,
         {
           name: form.name,
