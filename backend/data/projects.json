@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": "Weather Checker",
+    "tech": [
+      "Node.js",
+      "Express",
+      "OpenWeatherMap API"
+    ],
+    "description": "A site that predicts if it will rain tomorrow and suggests whether to bring an umbrella or sunscreen.",
+    "image": "/images/project1.svg",
+    "url": "https://example.com/weather"
+  },
+  {
+    "id": 2,
+    "title": "Book List App",
+    "tech": [
+      "Node.js",
+      "Express",
+      "EJS"
+    ],
+    "description": "A CRUD app to manage books with search, filter, and read counts.",
+    "image": "/images/project2.svg",
+    "url": "https://example.com/books"
+  },
+  {
+    "id": 3,
+    "title": "Expense Tracker",
+    "tech": [
+      "React",
+      "Node.js",
+      "PostgreSQL"
+    ],
+    "description": "Track income & expenses with charts and CSV export.",
+    "image": "/images/project3.svg",
+    "url": "https://example.com/expense"
+  }
+]

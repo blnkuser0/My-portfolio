@@ -1,0 +1,1 @@
+Charl Portfolio — Production-ready scaffold\n\nFrontend: Vite + React (single page).\nBackend: Node + Express (simple API for projects & contact).\n\nSee frontend/README.md and backend/README.md for details.
