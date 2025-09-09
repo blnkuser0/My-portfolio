@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import emailjs from "emailjs-com";
 import api from "../api/api";
 
 const SVG = {
@@ -22,35 +22,112 @@ export default function Contact() {
   const [form, setForm] = useState({name:'',email:'',subject:'',message:''});
   const [status, setStatus] = useState(null);
 
-  const submit = async (e) => {
+  const sendEmail = (e) => {
     e.preventDefault();
-    setStatus('sending');
-    try {
-      await axios.post('/api/contact', form);
-      setStatus('sent');
-      setForm({name:'',email:'',subject:'',message:''});
-    } catch (err) {
-      setStatus('error');
-    }
+    setStatus("sending");
+
+    emailjs
+      .send(
+        import.meta.env.VITE_MY_SERVICE_ID,
+        import.meta.env.VITE_MY_TEMPLATE_ID,
+        {
+          name: form.name,
+          email: form.email,
+          subject: form.subject,
+          message: form.message,
+        },
+        import.meta.env.VITE_MY_PUBLIC_KEY
+      )
+      .then(() => {
+        setStatus("sent");
+        setForm({ name: "", email: "", subject: "", message: "" });
+      })
+      .catch(() => setStatus("error"));
   };
 
   return (
     <section aria-labelledby="contact-heading">
       <h2 id="contact-heading">Message me</h2>
-      <form onSubmit={submit} style={{maxWidth:720,display:'grid',gap:10}} aria-label="Contact form">
-        <input aria-label="Name" required placeholder="Name" value={form.name} onChange={e=>setForm({...form,name:e.target.value})} />
-        <input aria-label="Email" required placeholder="Email" value={form.email} onChange={e=>setForm({...form,email:e.target.value})} />
-        <input aria-label="Subject" placeholder="Subject" value={form.subject} onChange={e=>setForm({...form,subject:e.target.value})} />
-        <textarea aria-label="Message" required placeholder="Write message" value={form.message} onChange={e=>setForm({...form,message:e.target.value})} rows={6} />
-        <button type="submit" aria-live="polite">Send Message</button>
+      <form
+        onSubmit={sendEmail}
+        style={{ maxWidth: 720, display: "grid", gap: 10 }}
+        aria-label="Contact form"
+      >
+        <input
+          aria-label="Name"
+          required
+          placeholder="Name"
+          value={form.name}
+          onChange={(e) => setForm({ ...form, name: e.target.value })}
+        />
+        <input
+          aria-label="Email"
+          required
+          placeholder="Email"
+          value={form.email}
+          onChange={(e) => setForm({ ...form, email: e.target.value })}
+        />
+        <input
+          aria-label="Subject"
+          placeholder="Subject"
+          value={form.subject}
+          onChange={(e) => setForm({ ...form, subject: e.target.value })}
+        />
+        <textarea
+          aria-label="Message"
+          required
+          placeholder="Write message"
+          value={form.message}
+          onChange={(e) => setForm({ ...form, message: e.target.value })}
+          rows={6}
+        />
+        <button type="submit" aria-live="polite">
+          Send Message
+        </button>
       </form>
 
-      <div style={{marginTop:14,display:'flex',gap:12,alignItems:'center'}} aria-label="Social links">
-        <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">{SVG.github}</a>
-        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">{SVG.linkedin}</a>
-        <a href="mailto:youremail@example.com" aria-label="Email">{SVG.mail}</a>
+      {status === "sending" && <div style={{ marginTop: 8 }}>Sending...</div>}
+      {status === "sent" && (
+        <div style={{ marginTop: 8, color: "green" }}>
+          Message sent successfully!
+        </div>
+      )}
+      {status === "error" && (
+        <div style={{ marginTop: 8, color: "red" }}>
+          Failed to send message. Try again later.
+        </div>
+      )}
+
+      <div
+        style={{
+          marginTop: 14,
+          display: "flex",
+          gap: 12,
+          alignItems: "center",
+        }}
+        aria-label="Social links"
+      >
+        <a
+          href="https://github.com/blnkuser0"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub"
+        >
+          {SVG.github}
+        </a>
+        <a
+          href="https://www.linkedin.com/in/charleduardnarvaez/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+        >
+          {SVG.linkedin}
+        </a>
+        <a href="mailto:charleduardnarvaez24@gmail.com" aria-label="Email">
+          {SVG.mail}
+        </a>
       </div>
-      {status && <div style={{marginTop:8}}>Status: {status}</div>}
+      {/* {status && <div style={{ marginTop: 8 }}>Status: {status}</div>} */}
     </section>
   );
 }

@@ -1,6 +1,16 @@
 const fallbackProjects = [
   {
     id: 1,
+    title: "About this Portfolio",
+    tech: ["Node.js", "Express", "React", "Vite"],
+    description:
+      "full-stack site built with React, Vite, Node.js, and Express. It features a responsive layout, dark/light mode toggle, typing animation, and API-powered project and contact sections.",
+    image: "/images/code.png",
+    url: "https://my-portfolio-6391.onrender.com",
+    github: "https://github.com/blnkuser0/My-portfolio",
+  },
+  {
+    id: 2,
     title: "Book Review",
     tech: ["Node.js", "Express", "EJS", "passport.js"],
     description:
@@ -10,7 +20,7 @@ const fallbackProjects = [
     github: "https://github.com/blnkuser0/book-review",
   },
   {
-    id: 2,
+    id: 3,
     title: "Expense Tracker",
     tech: ["Node.js", "Express", "EJS"],
     description:
@@ -20,7 +30,7 @@ const fallbackProjects = [
     github: "https://github.com/blnkuser0/expense-tracker",
   },
   {
-    id: 3,
+    id: 4,
     title: "Todo Weather App",
     tech: ["Node.js", "Express.js", "API"],
     description:
@@ -30,7 +40,7 @@ const fallbackProjects = [
     github: "https://github.com/blnkuser0/Todo-Weather-App",
   },
   {
-    id: 4,
+    id: 5,
     title: "Book List App",
     tech: ["Node.js", "Express.js", "Rest API"],
     description:
