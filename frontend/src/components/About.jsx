@@ -5,7 +5,7 @@ import api from "../api/api";
 export default function About() {
   const text = useTypingText(
     [
-      "<Hi, I'm Charl a Web Developer />",
+      "<Hi, I'm  Charl a Web Developer />",
       "<I build fast, functional, and fabulous websites. />",
     ],
     70,
@@ -48,8 +48,8 @@ export default function About() {
         </div>
 
         <a
-          href="/Resume/Charl Narvaez.pdf"
-          download="CharlEduard_CV.pdf"
+          href="/Resume/Narvaez_CV.pdf"
+          download="CharlEduardNarvaez_CV.pdf"
           className="btn-download"
         >
           <svg
@@ -103,6 +103,8 @@ export default function About() {
               <span className="badge">Rest API</span>
               <span className="badge">MySQL</span>
               <span className="badge">Laravel</span>
+              <span className="badge">Java</span>
+              <span className="badge">Java Swing</span>
             </div>
           </div>
 
